@@ -1,3 +1,4 @@
+import gc
 from datetime import datetime
 from typing import Union
 
@@ -23,8 +24,8 @@ class DataOrchestrator:
         batch_size: Size of each data loading batch.
         datetime_to_filter: Datetime to use for filtering data.
         h3_index_filter: H3 index to use for filtering data.
-        filter_by_date: Flag indicating whether to filter data by date.
-        process_data: Flag indicating whether to process the data.
+        filter_by_date: Flag indicating whether to filter data by date. If True, filtering is done by date.
+        process_data: Flag indicating whether to process the data. If True, the Processor is instantiated and run.
         output_file: Output file path for storing data.
     """
 
@@ -64,8 +65,12 @@ class DataOrchestrator:
             batch_end = min(batch_start + self.batch_size, self.end_day + 1)
             result_batch = DataLoader.process_data_batch(batch_start, batch_end, self.h3_indexes_df)
             results.append(result_batch)
+            del result_batch
+            gc.collect()
 
         self.data = pd.concat(results)
+        del results
+        gc.collect()
         total_time_loader = datetime.now() - start_time_loader
         total_seconds_loader = total_time_loader.total_seconds()
         logger.info(f'Data Loader Step completed in: {total_seconds_loader}')

@@ -14,6 +14,32 @@ Make sure you have installed the GCP SDK.
 
 Examples can be found in the `examples` directory. Please refer to `demo.html` for a general introduction to the tool.
 
+To load all May 2022 data related to total_precipitations, and filter by the
+h3 index `'8a0326233ab7fff'`, one can run the following script:
+
+```python
+from pipeline.orchestrator import DataOrchestrator
+from pipeline.loader import DataLoader
+
+h3_indexes_df = DataLoader.compute_h3_index_from_file (
+    nc_file_path="05/01/total_precipitation/surface.nc", 
+    resolution=10
+)
+
+data_pipeline = DataOrchestrator(
+    h3_indexes_df, 
+    start_day=1, 
+    end_day=31, 
+    batch_size=5, 
+    datetime_to_filter=None, 
+    h3_index_filter='8a0326233ab7fff', 
+    filter_by_date=False, 
+    process_data=False, 
+    output_file = 'era5_may2022_tp_dataset_8a0326233ab7fff.parquet'
+)
+data_pipeline.pipeline()
+```
+
 ## Unit Tests
 
 To run unit tests:
