@@ -12,10 +12,10 @@ Make sure you have installed the GCP SDK.
 
 ## How to Use
 
-Examples can be found in the `examples` directory. Please refer to `demo.html` for a general introduction to the tool.
+Examples can be found in the `examples` directory. Please refer to `demo.ipynb` for a general introduction to the tool.
 
 To load all May 2022 data related to total_precipitations, and filter by the
-h3 index `'8a0326233ab7fff'`, one can run the following script:
+H3 index `'8a1e80433107fff'`, one can run the following script:
 
 ```python
 from pipeline.orchestrator import DataOrchestrator
@@ -32,13 +32,18 @@ data_pipeline = DataOrchestrator(
     end_day=31, 
     batch_size=5, 
     datetime_to_filter=None, 
-    h3_index_filter='8a0326233ab7fff', 
+    h3_index_filter='8a1e80433107fff', 
     filter_by_date=False, 
     process_data=False, 
-    output_file = 'era5_may2022_tp_dataset_8a0326233ab7fff.parquet'
+    output_file = 'era5_may2022_tp_dataset_8a1e80433107fff.parquet'
 )
 data_pipeline.pipeline()
 ```
+Please note that the H3 index `'8a1e80433107fff'` is the one closest to the following coordinates:
+- Latitude: 41.75
+- Longitude: 12.5
+
+which can be identified as Italy.
 
 ## Unit Tests
 
