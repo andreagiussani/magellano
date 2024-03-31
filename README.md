@@ -67,8 +67,8 @@ coverage report -m
 ## Hardware Specifications
 The development of this data pipeline was done using a Google Cloud Platform (GCP) Virtual Machine to avoid memory and compute constraints from my local machine.
 I have used a E2 Standard machine with the following specifications:
- - 16 CPU
- - 8 core
+ - 16 CPUs
+ - 8 cores
  - 64 GB Memory
 
 ## Remarks
