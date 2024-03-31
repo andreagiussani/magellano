@@ -132,7 +132,7 @@ class DataLoader:
 
         unique_coords_df = df[[LATITUDE_CONSTANT, LONGITUDE_CONSTANT]].drop_duplicates()
 
-        DataLoader.verify_coordinate_ranges(unique_coords_df)
+        cls.verify_coordinate_ranges(unique_coords_df)
 
         unique_coords_df[H3_INDEX_CONSTANT] = unique_coords_df.apply(
             lambda row: h3.geo_to_h3(lat=row[LATITUDE_CONSTANT], lng=row[LONGITUDE_CONSTANT], resolution=resolution),
