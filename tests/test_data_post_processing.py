@@ -3,7 +3,7 @@ from datetime import datetime
 
 import pandas as pd
 
-from data_loader.manager import DataManager
+from pipeline.manager import DataManager
 from tests.fixtures import DATA_MOCK_INPUT_DATA
 
 

@@ -1,11 +1,11 @@
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from data_loader.constants import (
+from pipeline.constants import (
     TIME_CONSTANT,
     H3_INDEX_CONSTANT,
 )
-from data_loader.processor import Processor
+from pipeline.processor import Processor
 
 from datetime import datetime
 

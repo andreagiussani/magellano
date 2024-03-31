@@ -5,7 +5,7 @@ from dask.distributed import Client, LocalCluster
 from datetime import datetime
 import logging
 
-from data_loader.constants import (
+from pipeline.constants import (
     LONGITUDE_CONSTANT,
     LATITUDE_CONSTANT,
     TIME_CONSTANT,

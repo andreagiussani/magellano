@@ -3,9 +3,9 @@ from typing import Union
 
 import pandas as pd
 
-from data_loader.constants import RAW_ERA5_PARQUET_SCHEMA_CONSTANT, PROCESSED_ERA5_PARQUET_SCHEMA_CONSTANT
-from data_loader.loader import DataLoader
-from data_loader.manager import DataManager
+from pipeline.constants import RAW_ERA5_PARQUET_SCHEMA_CONSTANT, PROCESSED_ERA5_PARQUET_SCHEMA_CONSTANT
+from pipeline.loader import DataLoader
+from pipeline.manager import DataManager
 
 import logging
 
