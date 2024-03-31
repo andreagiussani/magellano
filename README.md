@@ -1,4 +1,5 @@
 # Magellano
+[![tests](https://github.com/andreagiussani/magellano/workflows/pytest/badge.svg)](https://github.com/andreagiussani/magellano/actions)
 
 ## Get Data
 
